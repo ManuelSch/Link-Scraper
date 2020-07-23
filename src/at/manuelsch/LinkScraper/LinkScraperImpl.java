@@ -61,7 +61,7 @@ public class LinkScraperImpl implements LinkScraper {
     /**
      * Creates and executes a new ScrapeWorker
      */
-    private void executeNewWorker(URL url) {
+    private synchronized void executeNewWorker(URL url) {
         this.executor.execute(this.createWorker(url));
         int nWorkers = this.pendingWorkers.incrementAndGet();
         logger.log(Level.INFO, "pending workers: " + nWorkers + " (+) " + url);
