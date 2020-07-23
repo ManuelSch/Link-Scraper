@@ -37,7 +37,7 @@ public class HttpConnectorImpl implements HttpConnector {
 
             return content.toString();
         } catch (IOException e) {
-            String errorMsg = "GET request failed";
+            String errorMsg = "GET request for url '" + url + "' failed";
             if (con != null) {
                 errorMsg += " (status " + con.getResponseCode() + ")";
             }
